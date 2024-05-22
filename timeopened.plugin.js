@@ -2,7 +2,7 @@
  * @name  TimeOpened
  * @author TuxMan
  * @description Counts how long the client has been opened in this instance and puts it on screen.
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 module.exports = class YourPlugin {
@@ -15,11 +15,12 @@ module.exports = class YourPlugin {
 
         function timeget() {
 
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        return `${hours}:${minutes}:${seconds}`;
+         const now = new Date();
+         const currentTime = now.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
+       // const hours = String(now.getHours()).padStart(2, '0');
+      //  const minutes = String(now.getMinutes()).padStart(2, '0');
+        //const seconds = String(now.getSeconds()).padStart(2, '0');
+        return `${currentTime}`;
           }
           function updateText() {
             const textElement = document.getElementById("custom-text");
@@ -69,7 +70,7 @@ module.exports = class YourPlugin {
             textElement.style.padding = "10px";
             textElement.style.borderRadius = "5px";
             textElement.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
-            textElement.style.width = "160px";  // Set a fixed width
+          //  textElement.style.width = "230px";  // Set a fixed width
 
           // adds the text to client
           document.body.appendChild(textElement);
