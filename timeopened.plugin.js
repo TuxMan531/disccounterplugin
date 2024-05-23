@@ -2,7 +2,7 @@
  * @name  TimeOpened
  * @author TuxMan
  * @description Counts how long the client has been opened in this instance and puts it on screen.
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 module.exports = class YourPlugin {
