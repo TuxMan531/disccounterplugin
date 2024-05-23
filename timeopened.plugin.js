@@ -102,7 +102,7 @@ module.exports = class YourPlugin {
                   //Remove the text element if it exists 2
                   const aa = document.getElementById("custom-text2");
                   if (aa) {
-                      textElement.remove();
+                      textElement2.remove();
                   }
             
     }
