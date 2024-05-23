@@ -6,6 +6,10 @@
  */
 
 module.exports = class YourPlugin {
+  constructor() {
+    this.textElement = null;
+    this.textElement2 = null;
+}
     load() {
         BdApi.alert("Counting Activated");
         
@@ -13,6 +17,7 @@ module.exports = class YourPlugin {
 
     start() {
       // Called when the plugin is activated (including after reloads)
+
       BdApi.alert("You started it");
       let elapsedTime = 0;
           
@@ -82,16 +87,17 @@ module.exports = class YourPlugin {
       document.body.appendChild(textElement);
       document.body.appendChild(textElement2);
 
-      setInterval(updateText, 100);
-      setInterval(updateText2, 1000);
-      
+          setInterval(updateText, 100);
+          setInterval(updateText2, 1000);
+
+
+
     } 
 
     stop() {
       // Called when the plugin is deactivated
-      
-                  //deltes the text boxes
-                  document.body.removeChild(textElement);
-                  document.body.removeChild(textElement2);
+    // Remove text elements from document
+    if (this.textElement) document.body.removeChild(this.textElement);
+    if (this.textElement2) document.body.removeChild(this.textElement2);
     }
 }
